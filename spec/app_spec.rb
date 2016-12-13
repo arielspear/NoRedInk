@@ -11,7 +11,7 @@ describe "App" do
     allow($stdin).to receive(:gets).and_return(3)
     numOfQ = $stdin.gets.to_int
 
-    expect(numOfQ).to eq(5)
+    expect(numOfQ).to eq(3)
   end
 
 
