@@ -8,8 +8,8 @@ describe "App" do
     App.new.prompt
   end
   it 'should prompt for input and accept it' do
-    allow($stdin).to receive(:gets).and_return(3)
-    numOfQ = $stdin.gets.to_int
+    allow($stdin).to receive(:gets).and_return('3')
+    numOfQ = $stdin.gets.to_i
 
     expect(numOfQ).to eq(3)
   end
