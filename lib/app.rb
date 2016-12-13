@@ -1,5 +1,6 @@
 class App
   def prompt
-    puts "Hello world";
+    puts 'hello world';
   end
 end
+App.new.prompt
