@@ -1,7 +1,9 @@
 require 'stringio'
+require 'CSV'
 
 class App
 
+  @@arr_of_arrs = CSV.read("./questions.csv")
   def getNumOfQ()
     numOfQ = gets.chomp.to_i
     puts numOfQ
@@ -13,8 +15,10 @@ class App
     end
   end
     def prompt
+
       puts 'How many questions do you want?';
-      getNumOfQ
+      num = getNumOfQ
+      puts @@arr_of_arrs[num]
     end
 end
 App.new.prompt
