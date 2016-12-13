@@ -1,6 +1,6 @@
 class App
   def prompt
-    puts 'hello world';
+    puts 'How many questions do you want?';
   end
 end
 App.new.prompt
