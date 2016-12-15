@@ -8,7 +8,6 @@ class App
   @@arr_of_arrs = CSV.read("./questions.csv", :headers => true)
   def getNumOfQ()
     numOfQ = gets.chomp.to_i
-    # puts numOfQ
     if numOfQ < 1
         puts 'Please enter a number greater than 0'
       return numOfQ
@@ -28,10 +27,14 @@ class App
   # IDK if I will need this object stuff later, but I'm leaving it here for now
 
     def prompt
-
       puts 'How many questions do you want?';
       num = getNumOfQ
-      puts @@arr_of_arrs[num]['question_id']
+      # puts @@arr_of_arrs.sample(num) sample not working for csv array
+      i = 0
+      while i < num
+        puts @@arr_of_arrs[i]['question_id']
+        i += 1
+      end
     end
 end
 App.new.prompt
