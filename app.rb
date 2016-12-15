@@ -3,6 +3,8 @@ require 'CSV'
 
 class App
 
+
+
   @@arr_of_arrs = CSV.read("./questions.csv")
   def getNumOfQ()
     numOfQ = gets.chomp.to_i
@@ -14,6 +16,14 @@ class App
       return numOfQ
     end
   end
+  CSV.foreach('./questions.csv', :headers => true) do |csv_obj|
+
+    puts csv_obj['question_id'] #prints the question_id of each object(question)
+
+
+  end
+
+
     def prompt
 
       puts 'How many questions do you want?';
