@@ -43,10 +43,11 @@ class App
 
       # make a hash with an empty array, then append the array with a Hash based on strand_ids
       CSV.foreach("questions.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
-        strand_ids[row.fields[0]] = []
-      end
-      CSV.foreach("questions.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
-        strand_questions = strand_ids[row.fields[0]]
+        strand_id = row.fields[0]
+        unless strand_ids.has_key? strand_id
+          strand_ids[strand_id] = []
+        end
+        strand_questions = strand_ids[strand_id]
         strand_questions.push Hash[row.headers[1..-1].zip(row.fields[1..-1])]
       end
       pp strand_ids
